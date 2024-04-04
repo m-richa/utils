@@ -24,3 +24,6 @@ def rename_files(filepath):
         src = file.split('/')[-1].split('.')[0]
         new_file = file.replace(src, str(int(src)-1).zfill(5))
         os.rename(file, new_file)
+
+def count_parameters(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
